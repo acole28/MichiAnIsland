@@ -2,6 +2,7 @@ extends Node2D
 
 #creates an array of places from the map scene building tab
 @onready var goals = $map_holder/Map/Buildings/Places.get_children()
+var game_over = preload("res://pause_menu.tscn").instantiate()
 var goal 
 var found_places := []
 var destination : int
@@ -12,7 +13,7 @@ func _ready():
 		
 	
 func make_goal():
-	#print(goals.size() - 1)
+	print(goals.size() - 1)
 	destination = randi_range(0, goals.size() - 1)
 	print(destination)
 	#use the random interger to pick the location and activate the collision shape
@@ -42,8 +43,12 @@ func reset():
 	goal = null
 	#Check if there are objects in Goals array. If there are no items, print a message
 	if goals.size() == 0:
-		print("There are no more worlds to conquer")
+		print("you did it!")
+		$".".queue_free()
+		get_tree().change_scene_to_file("res://game_over.tscn")
 	#If there are items, run the setup.
 	else:
 		clear_goal()
 		make_goal()
+		
+		

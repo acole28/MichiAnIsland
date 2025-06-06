@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bro6bs33gh4db"]
+[gd_scene load_steps=6 format=3 uid="uid://bro6bs33gh4db"]
 
 [ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="1_05uyy"]
+[ext_resource type="Script" uid="uid://dtqw4y128mmoe" path="res://pause_menu.gd" id="1_p81d2"]
 [ext_resource type="Texture2D" uid="uid://b1h6jl7eho6s4" path="res://assets/UI Pack/PNG/Blue/Default/button_rectangle_depth_flat.png" id="2_p81d2"]
 [ext_resource type="Texture2D" uid="uid://ck76kg0w12jq2" path="res://assets/UI Pack/PNG/Blue/Default/button_rectangle_depth_gloss.png" id="3_2nc7s"]
 
@@ -8,6 +9,7 @@
 bg_color = Color(0.425571, 0.425571, 0.425571, 0.262745)
 
 [node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_p81d2")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -20,9 +22,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d3xb4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -71.5
+offset_right = 400.0
+offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_05uyy")
@@ -39,12 +47,13 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="PlayAgain" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Unpause" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("2_p81d2")
 texture_pressed = ExtResource("3_2nc7s")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/PlayAgain"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/Unpause"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,16 +61,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
-text = "Play Again"
+text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayAgain2" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="MainMenu" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("2_p81d2")
 texture_pressed = ExtResource("3_2nc7s")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/PlayAgain2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,6 +79,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
-text = "Play Again"
+text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Unpause" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

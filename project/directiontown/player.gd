@@ -7,12 +7,15 @@ var deceleration := 150
 
 var queue = [null] #using null to avoid errors
 
-
+func _ready():
+	for child in get_children():
+		print(child)
 
 func _physics_process(delta: float) -> void:
 	move()
 	move_and_slide()
-	
+	pause()
+
 	
 func move():
 	#placing and removing input in queue
@@ -42,4 +45,7 @@ func move():
 	if velocity.y < 0:
 		$AnimatedSprite2D.play("walk_up")
 		
-		
+func pause():
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		$PauseMenu.visible = true

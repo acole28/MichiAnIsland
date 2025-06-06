@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfy3tjx8ng10d"]
+[gd_scene load_steps=18 format=3 uid="uid://bfy3tjx8ng10d"]
 
 [ext_resource type="Texture2D" uid="uid://dvpwnhcid6o07" path="res://assets/RPG Urban Pack/Player Sprites/tile_0024.png" id="1_loxg5"]
 [ext_resource type="Script" uid="uid://bo1bqlbfr7rdk" path="res://player.gd" id="1_xtm7e"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cuxoa4kmnx2lq" path="res://assets/RPG Urban Pack/Player Sprites/tile_0052.png" id="12_prlx5"]
 [ext_resource type="Texture2D" uid="uid://dnjbex5i84hmd" path="res://assets/RPG Urban Pack/Player Sprites/tile_0079.png" id="13_jdytn"]
 [ext_resource type="PackedScene" uid="uid://ccjeb0gw8xehy" path="res://ui.tscn" id="14_bwjto"]
+[ext_resource type="PackedScene" uid="uid://bro6bs33gh4db" path="res://pause_menu.tscn" id="15_606se"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqdie"]
 radius = 5.0
@@ -112,3 +113,7 @@ animation = &"walk_down"
 frame = 1
 
 [node name="UserInterface" parent="." instance=ExtResource("14_bwjto")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_606se")]
+process_mode = 2
+visible = false
