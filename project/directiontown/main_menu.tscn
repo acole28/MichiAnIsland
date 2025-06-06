@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://bywl2u2jhqpj0"]
+
+[ext_resource type="Texture2D" uid="uid://bko6wfkqqfxib" path="res://assets/UI Pack/PNG/Blue/Double/button_rectangle_depth_flat.png" id="1_fu7sn"]
+[ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="1_glbon"]
+[ext_resource type="Script" uid="uid://demnrhfunmwcl" path="res://main_menu.gd" id="1_jix8l"]
+[ext_resource type="Texture2D" uid="uid://d17x5ryobf24t" path="res://assets/UI Pack/PNG/Blue/Double/button_rectangle_depth_gloss.png" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://34ukd0a0chae" path="res://assets/Town_Cityscape.svg" id="3_glbon"]
+
+[sub_resource type="SystemFont" id="SystemFont_glbon"]
+font_names = PackedStringArray("Chalkboard SE")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_nlkkf"]
+default_font = SubResource("SystemFont_glbon")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_glbon")
+script = ExtResource("1_jix8l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.150193
+anchor_bottom = 0.14964
+offset_right = 978.978
+offset_bottom = 551.033
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.993298, 0.989639)
+texture = ExtResource("3_glbon")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nlkkf")
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 80
+text = "Michi:  An Island"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 150
+
+[node name="PlayGame" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(384, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_fu7sn")
+texture_pressed = ExtResource("2_jix8l")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Play Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_fu7sn")
+texture_pressed = ExtResource("2_jix8l")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "View Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

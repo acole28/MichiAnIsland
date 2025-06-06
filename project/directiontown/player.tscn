@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfy3tjx8ng10d"]
+
+[ext_resource type="Texture2D" uid="uid://dvpwnhcid6o07" path="res://assets/RPG Urban Pack/Player Sprites/tile_0024.png" id="1_loxg5"]
+[ext_resource type="Script" uid="uid://bo1bqlbfr7rdk" path="res://player.gd" id="1_xtm7e"]
+[ext_resource type="Texture2D" uid="uid://doxhkn8yvugea" path="res://assets/RPG Urban Pack/Player Sprites/tile_0051.png" id="3_hbmrd"]
+[ext_resource type="Texture2D" uid="uid://b0bhkr4yusbck" path="res://assets/RPG Urban Pack/Player Sprites/tile_0078.png" id="4_x66fi"]
+[ext_resource type="Texture2D" uid="uid://dt4tcr0fvw1ud" path="res://assets/RPG Urban Pack/Player Sprites/tile_0023.png" id="5_qt61a"]
+[ext_resource type="Texture2D" uid="uid://cn1mc33xjtgy0" path="res://assets/RPG Urban Pack/Player Sprites/tile_0077.png" id="6_k7x76"]
+[ext_resource type="Texture2D" uid="uid://clpq1p2hjwssl" path="res://assets/RPG Urban Pack/Player Sprites/tile_0050.png" id="7_87qjw"]
+[ext_resource type="Texture2D" uid="uid://clqoave0uu7h0" path="res://assets/RPG Urban Pack/Player Sprites/tile_0026.png" id="8_vpbon"]
+[ext_resource type="Texture2D" uid="uid://bxdkxcj4n04ct" path="res://assets/RPG Urban Pack/Player Sprites/tile_0053.png" id="9_8vqdx"]
+[ext_resource type="Texture2D" uid="uid://doeptxm15y6yv" path="res://assets/RPG Urban Pack/Player Sprites/tile_0080.png" id="10_hdept"]
+[ext_resource type="Texture2D" uid="uid://gcpmxc3dl8xk" path="res://assets/RPG Urban Pack/Player Sprites/tile_0025.png" id="11_kai2v"]
+[ext_resource type="Texture2D" uid="uid://cuxoa4kmnx2lq" path="res://assets/RPG Urban Pack/Player Sprites/tile_0052.png" id="12_prlx5"]
+[ext_resource type="Texture2D" uid="uid://dnjbex5i84hmd" path="res://assets/RPG Urban Pack/Player Sprites/tile_0079.png" id="13_jdytn"]
+[ext_resource type="PackedScene" uid="uid://ccjeb0gw8xehy" path="res://ui.tscn" id="14_bwjto"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqdie"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5sfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x66fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_loxg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbmrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_loxg5")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_k7x76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt61a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_87qjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt61a")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8vqdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vpbon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hdept")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vpbon")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_prlx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kai2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jdytn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kai2v")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 3.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 2
+script = ExtResource("1_xtm7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_loxg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_yqdie")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q5sfc")
+animation = &"walk_down"
+frame = 1
+
+[node name="UserInterface" parent="." instance=ExtResource("14_bwjto")]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2w42axm1qys0"]
+
+[ext_resource type="Texture2D" uid="uid://grlpuut8jpwe" path="res://assets/RPG Urban Pack/Player Sprites/tile_0186.png" id="1_oh278"]
+[ext_resource type="Texture2D" uid="uid://dadxj32qs58kt" path="res://assets/RPG Urban Pack/Player Sprites/tile_0213.png" id="2_exq3w"]
+[ext_resource type="Texture2D" uid="uid://vdrsjwp6820s" path="res://assets/RPG Urban Pack/Player Sprites/tile_0240.png" id="3_facwl"]
+[ext_resource type="Texture2D" uid="uid://d4jtuvexr6vfk" path="res://assets/RPG Urban Pack/Player Sprites/tile_0185.png" id="4_26iaa"]
+[ext_resource type="Texture2D" uid="uid://dy4uv7g2xyixj" path="res://assets/RPG Urban Pack/Player Sprites/tile_0212.png" id="5_b4km7"]
+[ext_resource type="Texture2D" uid="uid://doc7xlvs4qi30" path="res://assets/RPG Urban Pack/Player Sprites/tile_0239.png" id="6_nyqb0"]
+[ext_resource type="Texture2D" uid="uid://0hdeuhbxvceq" path="res://assets/RPG Urban Pack/Player Sprites/tile_0242.png" id="7_qkkce"]
+[ext_resource type="Texture2D" uid="uid://cug3paquia78w" path="res://assets/RPG Urban Pack/Player Sprites/tile_0188.png" id="8_wgurx"]
+[ext_resource type="Texture2D" uid="uid://cs1k8k40axxmu" path="res://assets/RPG Urban Pack/Player Sprites/tile_0215.png" id="9_y5c8i"]
+[ext_resource type="Texture2D" uid="uid://wnfabicxkds0" path="res://assets/RPG Urban Pack/Player Sprites/tile_0187.png" id="10_rpqg8"]
+[ext_resource type="Texture2D" uid="uid://4mci4i8etipl" path="res://assets/RPG Urban Pack/Player Sprites/tile_0214.png" id="11_v2m3v"]
+[ext_resource type="Texture2D" uid="uid://blv1vdsy121j5" path="res://assets/RPG Urban Pack/Player Sprites/tile_0241.png" id="12_56rbo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igl2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oh278")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_exq3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_facwl")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_26iaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b4km7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nyqb0")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qkkce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wgurx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y5c8i")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rpqg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v2m3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_56rbo")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oh278"]
+radius = 5.0
+height = 14.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_igl2i")
+animation = &"walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_oh278")

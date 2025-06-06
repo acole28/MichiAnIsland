@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kr0u7hoio0n6"]
+
+[ext_resource type="TileSet" uid="uid://cc4rgmcrnpnjq" path="res://CityTiles.tres" id="1_vex21"]
+
+[node name="CityTiles" type="TileMapLayer"]
+tile_set = ExtResource("1_vex21")
