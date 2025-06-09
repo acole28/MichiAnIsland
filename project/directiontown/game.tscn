@@ -27,7 +27,12 @@ collision_visibility_mode = 2
 [node name="Player" parent="." instance=ExtResource("2_jgrgh")]
 unique_name_in_owner = true
 
+[node name="TimeTracker" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="map_holder/Map/Buildings/Places" to="." method="_on_places_body_entered"]
+[connection signal="timeout" from="TimeTracker" to="." method="_on_timer_timeout"]
 
 [editable path="map_holder/Map"]
 [editable path="Player"]
+[editable path="Player/UserInterface"]

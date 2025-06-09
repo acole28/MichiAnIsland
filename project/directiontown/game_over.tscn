@@ -47,13 +47,18 @@ grow_vertical = 2
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 2
+
+[node name="Congrats" type="RichTextLabel" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(750, 250)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/normal_font_size = 36
-text = "Congratulations! 
-You did it!"
+text = "
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

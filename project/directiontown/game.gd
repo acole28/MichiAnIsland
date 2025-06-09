@@ -5,12 +5,14 @@ extends Node2D
 var game_over = preload("res://pause_menu.tscn").instantiate()
 var goal 
 var found_places := []
-var destination : int
+var destination : int 
+var total_time : int = 0
 
 
 func _ready():
 	reset()
-		
+	print(Global.test_num)
+
 	
 func make_goal():
 	print(goals.size() - 1)
@@ -42,10 +44,12 @@ func _on_places_body_entered(body: Node2D) -> void:
 func reset():
 	goal = null
 	#Check if there are objects in Goals array. If there are no items, print a message
-	if goals.size() == 0:
+	if found_places.size() == 2:
 		print("you did it!")
-		$".".queue_free()
+		Global.final_time = str(total_time)
 		get_tree().change_scene_to_file("res://game_over.tscn")
+		#print(Global.final_time)
+		$".".queue_free()
 	#If there are items, run the setup.
 	else:
 		clear_goal()
@@ -55,3 +59,8 @@ func hide_place_names():
 	var places = $MapHolder/Map/Buildings/Places.get_children()
 	for place in places:
 		place.get_child(0).visible = false
+		
+
+func _on_timer_timeout() -> void:
+	total_time += 1
+	
