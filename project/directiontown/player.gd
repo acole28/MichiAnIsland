@@ -7,9 +7,6 @@ var deceleration := 150
 
 var queue = [null] #using null to avoid errors
 
-func _ready():
-	for child in get_children():
-		print(child)
 
 func _physics_process(delta: float) -> void:
 	move()

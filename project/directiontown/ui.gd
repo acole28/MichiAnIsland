@@ -9,8 +9,14 @@ func _process(delta: float) -> void:
 
 
 func update_timer(delta):
-	$Countdown/CountdownText.text = countdown
-	countdown = var_to_str(int($Timer.time_left - delta))
+	if Global.quiz_game == false:
+		$Countdown/CountdownText.text = countdown
+		countdown = var_to_str(int($Timer.time_left - delta))
+	else:
+		$Countdown.visible = false
 
 func update_destination(location):
-	$Destination/DestinationText.text = location
+	if Global.quiz_game == false:
+		$Destination/DestinationText.text = location
+	else:
+		$Destination/DestinationText.text = location

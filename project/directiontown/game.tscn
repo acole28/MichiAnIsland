@@ -27,10 +27,15 @@ collision_visibility_mode = 2
 [node name="Player" parent="." instance=ExtResource("2_jgrgh")]
 unique_name_in_owner = true
 
+[node name="AnimatedSprite2D" parent="Player" index="3"]
+animation = &"walk_up"
+frame = 0
+
 [node name="TimeTracker" type="Timer" parent="."]
 autostart = true
 
 [connection signal="body_entered" from="map_holder/Map/Buildings/Places" to="." method="_on_places_body_entered"]
+[connection signal="area_entered" from="Player/PlayerArea" to="." method="_on_player_area_area_entered"]
 [connection signal="timeout" from="TimeTracker" to="." method="_on_timer_timeout"]
 
 [editable path="map_holder/Map"]

@@ -2,6 +2,7 @@ extends Node2D
 
 #creates an array of places from the map scene building tab
 @onready var goals = $map_holder/Map/Buildings/Places.get_children()
+@onready var places = %Map.get_child(3).get_child(0).get_children()
 var game_over = preload("res://pause_menu.tscn").instantiate()
 var goal 
 var found_places := []
@@ -10,9 +11,11 @@ var total_time : int = 0
 
 
 func _ready():
-	reset()
-	print(Global.test_num)
-
+	if Global.quiz_game == false:
+		reset()
+	else:
+		pass
+	
 	
 func make_goal():
 	print(goals.size() - 1)
@@ -28,18 +31,24 @@ func make_goal():
 		
 func clear_goal():
 	var i = 0
-	var places = %Map.get_child(3).get_child(0).get_children()
+	#var places = %Map.get_child(3).get_child(0).get_children()
 	for place in places:
 		place.disabled = true
 		i += 1
 
 
 func _on_places_body_entered(body: Node2D) -> void:
-	goal.set_deferred("disabled", true)
-	var location = goals.pop_at(destination)
-	found_places.append(location)
-	#print(found_places)
-	reset()
+	var location 
+	if Global.quiz_game == false:
+		goal.set_deferred("disabled", true)
+		location = goals.pop_at(destination)
+		found_places.append(location)
+		print(location.locationName)
+		reset()
+	elif Global.quiz_game == true:
+		#location = $map_holder/Map/Buildings/Places
+		#$Player/UserInterface.update_destination(location)
+		pass
 	
 func reset():
 	goal = null
@@ -48,7 +57,6 @@ func reset():
 		print("you did it!")
 		Global.final_time = str(total_time)
 		get_tree().change_scene_to_file("res://game_over.tscn")
-		#print(Global.final_time)
 		$".".queue_free()
 	#If there are items, run the setup.
 	else:
@@ -61,6 +69,17 @@ func hide_place_names():
 		place.get_child(0).visible = false
 		
 
+func quiz_mode():
+	pass
+
+
 func _on_timer_timeout() -> void:
 	total_time += 1
 	
+
+
+
+
+
+func _on_player_area_area_entered(area: Area2D) -> void:
+	$Player/UserInterface.update_destination(area.get_parent().locationName)

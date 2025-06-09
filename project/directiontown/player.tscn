@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfy3tjx8ng10d"]
+[gd_scene load_steps=19 format=3 uid="uid://bfy3tjx8ng10d"]
 
 [ext_resource type="Texture2D" uid="uid://dvpwnhcid6o07" path="res://assets/RPG Urban Pack/Player Sprites/tile_0024.png" id="1_loxg5"]
 [ext_resource type="Script" uid="uid://bo1bqlbfr7rdk" path="res://player.gd" id="1_xtm7e"]
@@ -91,6 +91,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_606se"]
+radius = 4.12311
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_xtm7e")
@@ -117,3 +120,8 @@ frame = 1
 [node name="PauseMenu" parent="." instance=ExtResource("15_606se")]
 process_mode = 2
 visible = false
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("CircleShape2D_606se")
