@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var camera = $Player/Camera2D
-@onready var places = %Map.get_child(4).get_child(0).get_children()
+@onready var places = $MapHolder/Map/Buildings/Places.get_children()
 
 func _ready():
 	show_place_names()
@@ -11,10 +11,11 @@ func _ready():
 	
 #this function reveals the panels and text with the location names in the map file
 func show_place_names():
-	#var places = %Map.get_child(4).get_child(0).get_children()
+	#var places = $MapHolder/Map/Buildings/Places.get_children()
 	for place in places:
 		place.get_child(0).visible = true
-		place.scale = Vector2(2, 2)
+		print(place.get_child(0))
+		place.scale = Vector2(1.5, 1.5)
 
 #This function zooms in the camera when the UI button is pressed
 func _on_zoom_in_pressed() -> void:

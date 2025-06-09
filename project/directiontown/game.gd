@@ -21,7 +21,7 @@ func make_goal():
 	goal = goals[destination]
 	goal.set_deferred("disabled", false)
 	print(goal.get_name())
-	$Player/UserInterface.update_destination(goal.get_name())
+	$Player/UserInterface.update_destination(goal.locationName)
 	
 		
 func clear_goal():
@@ -51,4 +51,7 @@ func reset():
 		clear_goal()
 		make_goal()
 		
-		
+func hide_place_names():
+	var places = $MapHolder/Map/Buildings/Places.get_children()
+	for place in places:
+		place.get_child(0).visible = false

@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=4 uid="uid://bw8xmktsj350i"]
+[gd_scene load_steps=8 format=4 uid="uid://bw8xmktsj350i"]
 
 [ext_resource type="TileSet" uid="uid://cc4rgmcrnpnjq" path="res://CityTiles.tres" id="1_luyf4"]
 [ext_resource type="Script" uid="uid://qtqre7vlufmg" path="res://places.gd" id="2_wijl4"]
+[ext_resource type="Script" uid="uid://ba8h4bcrn2s86" path="res://location_label.gd" id="3_e0an3"]
+[ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="3_p5pve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvvie"]
 size = Vector2(14, 14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urblq"]
+bg_color = Color(0.247059, 0.247059, 0.247059, 0.721569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cipm8"]
 size = Vector2(26.5, 11.75)
@@ -41,12 +46,36 @@ disabled = true
 script = ExtResource("2_wijl4")
 locationName = "Post Office"
 
+[node name="Label" type="Label" parent="Buildings/Places/PostOffice"]
+visible = false
+z_index = 1
+offset_left = -51.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -24.0
+theme = ExtResource("3_p5pve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+script = ExtResource("3_e0an3")
+metadata/_edit_use_anchors_ = true
+
 [node name="Apartments" type="CollisionShape2D" parent="Buildings/Places"]
 position = Vector2(960.5, -88)
 shape = SubResource("RectangleShape2D_xvvie")
 disabled = true
 script = ExtResource("2_wijl4")
 locationName = "Apartments"
+
+[node name="Label" type="Label" parent="Buildings/Places/Apartments"]
+visible = false
+z_index = 1
+offset_left = -51.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -24.0
+theme = ExtResource("3_p5pve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+script = ExtResource("3_e0an3")
+metadata/_edit_use_anchors_ = true
 
 [node name="FireDepartment" type="CollisionShape2D" parent="Buildings/Places"]
 position = Vector2(184, 168)
@@ -55,6 +84,18 @@ disabled = true
 script = ExtResource("2_wijl4")
 locationName = "Fire Station"
 
+[node name="Label" type="Label" parent="Buildings/Places/FireDepartment"]
+visible = false
+z_index = 1
+offset_left = -51.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -24.0
+theme = ExtResource("3_p5pve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+script = ExtResource("3_e0an3")
+metadata/_edit_use_anchors_ = true
+
 [node name="Park" type="CollisionShape2D" parent="Buildings/Places"]
 position = Vector2(-344, 120.5)
 shape = SubResource("RectangleShape2D_cipm8")
@@ -62,12 +103,36 @@ disabled = true
 script = ExtResource("2_wijl4")
 locationName = "Panda Park"
 
+[node name="Label" type="Label" parent="Buildings/Places/Park"]
+visible = false
+z_index = 1
+offset_left = -42.0
+offset_top = -40.5
+offset_right = 45.0
+offset_bottom = 1.5
+theme = ExtResource("3_p5pve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+script = ExtResource("3_e0an3")
+metadata/_edit_use_anchors_ = true
+
 [node name="DepartmentStore" type="CollisionShape2D" parent="Buildings/Places"]
 position = Vector2(-656, 570)
 shape = SubResource("RectangleShape2D_cipm8")
 disabled = true
 script = ExtResource("2_wijl4")
 locationName = "Department Store"
+
+[node name="Label" type="Label" parent="Buildings/Places/DepartmentStore"]
+visible = false
+z_index = 1
+offset_left = -51.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -24.0
+theme = ExtResource("3_p5pve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+script = ExtResource("3_e0an3")
+metadata/_edit_use_anchors_ = true
 
 [node name="Decorations" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD2/wIAAAACAAcAAAD2/wEAAAAEAA8AAADy//3/AAAFAA8AABDy//7/AAACAAcAABDy/wIAAAACAAcAAAD2//7/AAACAAcAAADy/wEAAAADAA8AAAD2//3/AAAGAA8AAADr//z/AAAPABAAAADr//3/AAAPABEAAADs//z/AAAQABAAAADs//3/AAAQABEAAAD1/wMAAAAPAA8AAFD1/wQAAAAQAA8AAFD2/wMAAAAPAA4AAFD2/wQAAAAQAA4AAFAHAPz/AAADAAoAAAAIAPz/AAAFAAoAAAAHAP3/AAAFAAoAAAD3/wMAAAAJAAsAAADe//r/AAAKABAAAADe//f/AAAKABAAAADi//z/AAAIAAAAAADe//z/AAAIAAAAAFDe//X/AAAIAAAAADDi//X/AAAIAAAAAGAEAPz/AAALAA8AAAAHAPr/AAALAA8AAAAHAPj/AAAJAAwAAAAJAAkAAAAMAA0AAAANAAkAAAAMAA0AAAALAAkAAAAMAA0AAAAFAAgAAAALABAAAAAFAAkAAAALABEAAAAFAPz/AAAIAAwAAADV/yMAAAAEAAwAAADW/yMAAAAFAAwAAADX/yMAAAAFAAwAAADY/yMAAAAGAAwAAADN/xkAAAAIAAwAAAALAPr/AAAMABAAAAAMAPr/AAAMABAAAAALAPv/AAAMABAAAAAMAPv/AAAMABAAAADm/wUAAAADAA0AAADm/wkAAAADAA0AAADu/wkAAAADAAwAAADu/wUAAAADAAwAAAAnAAoAAAASAAoAAAAoAAoAAAATAAoAAAApAAoAAAATAAoAAAAqAAoAAAATAAoAAAArAAoAAAATAAoAAAAsAAoAAAAUAAoAAAAoAPb/AAATAAkAAAAoAPf/AAATAAkAAAAoAPj/AAATAAkAAAAoAPn/AAATAAkAAAAoAPr/AAATAAkAAAAoAPv/AAATAAkAAAAoAPz/AAATAAkAAAAoAP3/AAATAAkAAAAoAP7/AAATAAkAAAAoAP//AAATAAkAAAAoAAAAAAATAAkAAAAoAAEAAAATAAkAAAAoAAIAAAATAAkAAAAoAAMAAAATAAkAAAAoAAQAAAATAAkAAAAoAAUAAAATAAkAAAAoAAYAAAATAAkAAAAoAAcAAAATAAkAAAAoAAgAAAATAAkAAAAoAAkAAAATAAkAAAApAPb/AAATAAkAAAApAPf/AAATAAkAAAApAPj/AAATAAkAAAApAPn/AAATAAkAAAApAPr/AAATAAkAAAApAPv/AAATAAkAAAApAPz/AAATAAkAAAApAP3/AAATAAkAAAApAP7/AAATAAkAAAApAP//AAATAAkAAAApAAAAAAATAAkAAAApAAEAAAATAAkAAAApAAIAAAATAAkAAAApAAMAAAATAAkAAAApAAQAAAATAAkAAAApAAUAAAATAAkAAAApAAYAAAATAAkAAAApAAcAAAATAAkAAAApAAgAAAATAAkAAAApAAkAAAATAAkAAAAqAPb/AAATAAkAAAAqAPf/AAATAAkAAAAqAPj/AAATAAkAAAAqAPn/AAATAAkAAAAqAPr/AAATAAkAAAAqAPv/AAATAAkAAAAqAPz/AAATAAkAAAAqAP3/AAATAAkAAAAqAP7/AAATAAkAAAAqAP//AAATAAkAAAAqAAAAAAATAAkAAAAqAAEAAAATAAkAAAAqAAIAAAATAAkAAAAqAAMAAAATAAkAAAAqAAQAAAATAAkAAAAqAAUAAAATAAkAAAAqAAYAAAATAAkAAAAqAAcAAAATAAkAAAAqAAgAAAATAAkAAAAqAAkAAAATAAkAAAArAPb/AAATAAkAAAArAPf/AAATAAkAAAArAPj/AAATAAkAAAArAPn/AAATAAkAAAArAPr/AAATAAkAAAArAPv/AAATAAkAAAArAPz/AAATAAkAAAArAP3/AAATAAkAAAArAP7/AAATAAkAAAArAP//AAATAAkAAAArAAAAAAATAAkAAAArAAEAAAATAAkAAAArAAIAAAATAAkAAAArAAMAAAATAAkAAAArAAQAAAATAAkAAAArAAUAAAATAAkAAAArAAYAAAATAAkAAAArAAcAAAATAAkAAAArAAgAAAATAAkAAAArAAkAAAATAAkAAAAoAPX/AAATAAgAAAApAPX/AAATAAgAAAAqAPX/AAATAAgAAAArAPX/AAATAAgAAAAsAPX/AAAUAAgAAAAsAPb/AAAUAAkAAAAsAPf/AAAUAAkAAAAsAPj/AAAUAAkAAAAsAPn/AAAUAAkAAAAsAPr/AAAUAAkAAAAsAPv/AAAUAAkAAAAsAPz/AAAUAAkAAAAsAP3/AAAUAAkAAAAsAP7/AAAUAAkAAAAsAP//AAAUAAkAAAAsAAAAAAAUAAkAAAAsAAEAAAAUAAkAAAAsAAIAAAAUAAkAAAAsAAMAAAAUAAkAAAAsAAQAAAAUAAkAAAAsAAUAAAAUAAkAAAAsAAYAAAAUAAkAAAAsAAcAAAAUAAkAAAAsAAgAAAAUAAkAAAAsAAkAAAAUAAkAAAAnAPb/AAASAAkAAAAnAPf/AAASAAkAAAAnAPj/AAASAAkAAAAnAPn/AAASAAkAAAAnAPr/AAASAAkAAAAnAPv/AAASAAkAAAAnAPz/AAASAAkAAAAnAP3/AAASAAkAAAAnAP7/AAASAAkAAAAnAP//AAASAAkAAAAnAAAAAAASAAkAAAAnAAEAAAASAAkAAAAnAAIAAAASAAkAAAAnAAMAAAASAAkAAAAnAAQAAAASAAkAAAAnAAUAAAASAAkAAAAnAAYAAAASAAkAAAAnAAcAAAASAAkAAAAnAAgAAAASAAkAAAAnAAkAAAASAAkAAAAnAPX/AAASAAgAAABGABwAAAAQAAoAAABGABsAAAAQAAgAAABXABsAAAAQAAgAAABXABwAAAAQAAoAAABHAPz/AAAQAAgAAABHAP3/AAAQAAoAAABWAPz/AAAQAAgAAABWAP3/AAAQAAoAAABZAAAAAAAQAAgAAABZAAEAAAAQAAoAAABZABcAAAAQAAgAAABZABgAAAAQAAoAAABEABcAAAAQAAgAAABEABgAAAAQAAoAAABEAAAAAAAQAAgAAABEAAEAAAAQAAoAAAC9/+X/AAABAA0AAGC+/+X/AAABAA0AAGC//+X/AAABAA0AAGDA/+X/AAABAA0AAGDB/+X/AAABAA0AAGDC/+X/AAABAA0AAGDD/+X/AAABAA0AAGDE/+X/AAABAA0AAGDF/+X/AAABAA0AAGDG/+X/AAABAA0AAGDH/+X/AAABAA0AAGC5/+j/AAABAA0AAAC5/+n/AAABAA0AAAC5/+r/AAABAA0AAADL/+j/AAABAA0AAADL/+n/AAABAA0AAADL/+r/AAABAA0AAADM/+n/AAACAA4AAAC4/+n/AAACAA4AABDH//H/AAAJAA8AAADI//H/AAAKAA8AAAC8//H/AAAHAA8AAAC9//H/AAAIAA8AAADE//D/AAANAA4AAADC//D/AAANAA4AAADA//D/AAANAA4AAAC+//D/AAANAA4AAADG//D/AAANAA4AAAC2/+z/AAAOABEAAAC2/+v/AAAOAA8AAADO/+v/AAAOAA8AAADO/+z/AAAOABEAAADM/+3/AAAOAA8AAADM/+7/AAAOABEAAADK/+//AAAOAA8AAADK//D/AAAOABEAAAC6/+//AAAOAA8AAAC6//D/AAAOABEAAAC4/+3/AAAOAA8AAAC4/+7/AAAOABEAAAA2APf/AAAOAA0AAAA2APj/AAAOAA4AAABBAPf/AAAOAA0AAABBAPj/AAAOAA4AAABBAPb/AAANAAwAAAA2APb/AAANAAwAAAA4APj/AAANAA0AAAA/APj/AAANAA0AAAA9APj/AAANAA0AAAA6APj/AAANAA0AAAA2APX/AAAOAA4AAAA2APT/AAAMAAwAAABBAPX/AAAOAA4AAABBAPT/AAANAAwAAAA4APb/AAANAA0AAAA6APb/AAANAA0AAAA9APb/AAANAA0AAAA/APb/AAANAA0AAAA/APT/AAANAA0AAAA9APT/AAANAA0AAAA6APT/AAANAA0AAAA4APT/AAANAA0AAAAMAPz/AAAPAAwAAADS//z/AAAPAAsAAADQ//z/AAAOAA8AAGDR//z/AAAOABEAAGDQ//v/AAAEAAwAAADR//v/AAAFAAwAAADS//v/AAAFAAwAAADT//v/AAAGAAwAAADT//3/AAAKAAoAAADS////AAAKABAAAADP//z/AAAIAAsAAAA=")
