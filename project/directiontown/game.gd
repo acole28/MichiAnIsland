@@ -82,4 +82,5 @@ func _on_timer_timeout() -> void:
 
 
 func _on_player_area_area_entered(area: Area2D) -> void:
-	$Player/UserInterface.update_destination(area.get_parent().locationName)
+	if Global.quiz_game == true:
+		$Player/UserInterface.update_destination(area.get_parent().locationName)

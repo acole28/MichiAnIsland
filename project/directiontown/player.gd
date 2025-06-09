@@ -7,6 +7,11 @@ var deceleration := 150
 
 var queue = [null] #using null to avoid errors
 
+func _ready():
+	if Global.quiz_game == false:
+		$PlayerArea.monitoring = false
+	else: 
+		$PlayerArea.monitoring = true
 
 func _physics_process(delta: float) -> void:
 	move()
@@ -43,6 +48,7 @@ func move():
 		$AnimatedSprite2D.play("walk_up")
 		
 func pause():
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
 		get_tree().paused = true
 		$PauseMenu.visible = true
+	
