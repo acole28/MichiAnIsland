@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfy3tjx8ng10d"]
+[gd_scene load_steps=29 format=3 uid="uid://bfy3tjx8ng10d"]
 
 [ext_resource type="Texture2D" uid="uid://dvpwnhcid6o07" path="res://assets/RPG Urban Pack/Player Sprites/tile_0024.png" id="1_loxg5"]
 [ext_resource type="Script" uid="uid://bo1bqlbfr7rdk" path="res://player.gd" id="1_xtm7e"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://gyr7pqvfko1i" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_e.png" id="9_iruf7"]
 [ext_resource type="Texture2D" uid="uid://doeptxm15y6yv" path="res://assets/RPG Urban Pack/Player Sprites/tile_0080.png" id="10_hdept"]
 [ext_resource type="Texture2D" uid="uid://wxdwm1443hye" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_e.png" id="10_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://bf4oxjltmv77w" path="res://assets/UI Pack/PNG/Extra/Default/icon_play_light.png" id="11_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://gcpmxc3dl8xk" path="res://assets/RPG Urban Pack/Player Sprites/tile_0025.png" id="11_kai2v"]
+[ext_resource type="Texture2D" uid="uid://dermus40yc2n6" path="res://assets/UI Pack/PNG/Extra/Default/icon_play_dark.png" id="12_7hik5"]
 [ext_resource type="Texture2D" uid="uid://cuxoa4kmnx2lq" path="res://assets/RPG Urban Pack/Player Sprites/tile_0052.png" id="12_prlx5"]
 [ext_resource type="Texture2D" uid="uid://dnjbex5i84hmd" path="res://assets/RPG Urban Pack/Player Sprites/tile_0079.png" id="13_jdytn"]
 [ext_resource type="PackedScene" uid="uid://ccjeb0gw8xehy" path="res://ui.tscn" id="14_bwjto"]
@@ -118,7 +120,7 @@ shape = SubResource("CapsuleShape2D_yqdie")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.5, 3.5)
 
-[node name="Control" type="Control" parent="Camera2D"]
+[node name="TouchControls" type="Control" parent="Camera2D"]
 layout_mode = 3
 anchor_top = 0.665
 anchor_bottom = 0.665
@@ -128,32 +130,39 @@ offset_right = -161.0
 offset_bottom = 61.0
 scale = Vector2(0.280003, 0.252002)
 
-[node name="Up" type="TouchScreenButton" parent="Camera2D/Control"]
+[node name="Up" type="TouchScreenButton" parent="Camera2D/TouchControls"]
 position = Vector2(102, 17)
 texture_normal = ExtResource("3_7lmhl")
 texture_pressed = ExtResource("4_dx0e4")
 action = "move_up"
 visibility_mode = 1
 
-[node name="Down" type="TouchScreenButton" parent="Camera2D/Control"]
+[node name="Down" type="TouchScreenButton" parent="Camera2D/TouchControls"]
 position = Vector2(102, 109)
 texture_normal = ExtResource("5_jm5j8")
 texture_pressed = ExtResource("6_7hik5")
 action = "move_down"
 visibility_mode = 1
 
-[node name="Left" type="TouchScreenButton" parent="Camera2D/Control"]
+[node name="Left" type="TouchScreenButton" parent="Camera2D/TouchControls"]
 position = Vector2(28, 61)
 texture_normal = ExtResource("7_qtqh7")
 texture_pressed = ExtResource("8_2wuci")
 action = "move_left"
 visibility_mode = 1
 
-[node name="Right" type="TouchScreenButton" parent="Camera2D/Control"]
+[node name="Right" type="TouchScreenButton" parent="Camera2D/TouchControls"]
 position = Vector2(176, 61)
 texture_normal = ExtResource("9_iruf7")
 texture_pressed = ExtResource("10_j5n4i")
 action = "move_right"
+visibility_mode = 1
+
+[node name="Pause" type="TouchScreenButton" parent="Camera2D/TouchControls"]
+position = Vector2(35.7139, -408.727)
+texture_normal = ExtResource("11_jm5j8")
+texture_pressed = ExtResource("12_7hik5")
+action = "pause"
 visibility_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

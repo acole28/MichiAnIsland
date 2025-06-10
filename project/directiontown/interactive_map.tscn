@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://w2ps71th4apk"]
+[gd_scene load_steps=20 format=3 uid="uid://w2ps71th4apk"]
 
 [ext_resource type="PackedScene" uid="uid://bw8xmktsj350i" path="res://map.tscn" id="1_1xlkj"]
 [ext_resource type="Script" uid="uid://l8c8w5reb34w" path="res://interactive_map.gd" id="1_gguev"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://s7b7inlb8isv" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_w.png" id="13_j2whu"]
 [ext_resource type="Texture2D" uid="uid://gyr7pqvfko1i" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_e.png" id="14_3k34i"]
 [ext_resource type="Texture2D" uid="uid://wxdwm1443hye" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_e.png" id="15_xhds7"]
+[ext_resource type="Texture2D" uid="uid://bf4oxjltmv77w" path="res://assets/UI Pack/PNG/Extra/Default/icon_play_light.png" id="16_1rlkj"]
+[ext_resource type="Texture2D" uid="uid://dermus40yc2n6" path="res://assets/UI Pack/PNG/Extra/Default/icon_play_dark.png" id="17_snp2j"]
 
 [node name="InteractiveMap" type="Node2D"]
 script = ExtResource("1_gguev")
@@ -87,7 +89,7 @@ texture_normal = ExtResource("6_kndq7")
 texture_pressed = ExtResource("7_cl17q")
 stretch_mode = 0
 
-[node name="Control" type="Control" parent="Player/CameraUI"]
+[node name="TouchControls" type="Control" parent="Player/CameraUI"]
 layout_mode = 3
 anchor_top = 0.665
 anchor_bottom = 0.665
@@ -95,34 +97,44 @@ offset_left = -4.0
 offset_top = 46.08
 offset_right = -4.0
 offset_bottom = 66.08
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.800004, 0.720002)
 
-[node name="Up" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+[node name="Up" type="TouchScreenButton" parent="Player/CameraUI/TouchControls"]
 position = Vector2(102, 17)
 texture_normal = ExtResource("8_ixpi5")
 texture_pressed = ExtResource("9_g8670")
 action = "move_up"
 visibility_mode = 1
 
-[node name="Down" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+[node name="Down" type="TouchScreenButton" parent="Player/CameraUI/TouchControls"]
 position = Vector2(102, 109)
 texture_normal = ExtResource("10_1rlkj")
 texture_pressed = ExtResource("11_snp2j")
 action = "move_down"
 visibility_mode = 1
 
-[node name="Left" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+[node name="Left" type="TouchScreenButton" parent="Player/CameraUI/TouchControls"]
 position = Vector2(28, 61)
 texture_normal = ExtResource("12_dsej7")
 texture_pressed = ExtResource("13_j2whu")
 action = "move_left"
 visibility_mode = 1
 
-[node name="Right" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+[node name="Right" type="TouchScreenButton" parent="Player/CameraUI/TouchControls"]
 position = Vector2(176, 61)
 texture_normal = ExtResource("14_3k34i")
 texture_pressed = ExtResource("15_xhds7")
 action = "move_right"
+visibility_mode = 1
+
+[node name="Pause" type="TouchScreenButton" parent="Player/CameraUI/TouchControls"]
+position = Vector2(43.7498, -627.776)
+scale = Vector2(1.66666, 1.66666)
+texture_normal = ExtResource("16_1rlkj")
+texture_pressed = ExtResource("17_snp2j")
+action = "pause"
 visibility_mode = 1
 
 [node name="Star" type="Sprite2D" parent="."]

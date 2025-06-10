@@ -12,6 +12,10 @@ func _ready():
 		$PlayerArea.monitoring = false
 	else: 
 		$PlayerArea.monitoring = true
+	if Global.touch == false:
+		$Camera2D/TouchControls.visible = false
+	else:
+		$Camera2D/TouchControls.visible = true
 
 func _physics_process(_delta: float) -> void:
 	move()

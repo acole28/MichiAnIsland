@@ -8,6 +8,10 @@ func _ready():
 	camera.set_zoom(Vector2(.4, .4))
 	$Player.max_speed = 200
 	$Player/UserInterface.visible = false
+	if Global.touch == false:
+		$Player/CameraUI/TouchControls.visible = false
+	else:
+		$Player/CameraUI/TouchControls.visible = true
 	
 #this function reveals the panels and text with the location names in the map file
 func show_place_names():
