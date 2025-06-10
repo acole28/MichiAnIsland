@@ -26,6 +26,7 @@ theme = ExtResource("1_glbon")
 script = ExtResource("1_jix8l")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
