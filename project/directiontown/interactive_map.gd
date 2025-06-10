@@ -14,7 +14,7 @@ func show_place_names():
 	#var places = $MapHolder/Map/Buildings/Places.get_children()
 	for place in places:
 		place.get_child(0).visible = true
-		print(place.get_child(0))
+		#print(place.get_child(0))
 		place.scale = Vector2(1.5, 1.5)
 
 #This function zooms in the camera when the UI button is pressed
@@ -33,7 +33,7 @@ func _on_zoom_out_pressed() -> void:
 		print(camera.get_zoom())
 		
 #This function scales place names/panels with the camera zoom
-func scale_place_names(Vector2):
+func scale_place_names(xy):
 	for place in places:
 		place.get_child(0).visible = true
-		place.scale += Vector2
+		place.scale += xy

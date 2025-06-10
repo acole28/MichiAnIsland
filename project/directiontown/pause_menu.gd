@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var main_menu = preload("res://main_menu.tscn").instantiate()
-var game_scene = ("res://game.tscn")
+#var main_menu = preload("res://main_menu.tscn").instantiate()
+#var game_scene = ("res://game.tscn")
 
 
 func _on_play_again_pressed() -> void:

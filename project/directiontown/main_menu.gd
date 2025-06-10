@@ -20,7 +20,7 @@ func _on_texture_button_pressed() -> void:
 	get_tree().root.add_child(map_scene)
 
 
-func _on_check_box_toggled(toggled_on: bool) -> void:
+func _on_check_box_toggled(_toggled_on: bool) -> void:
 	if $CheckBox.button_pressed == true:
 		Global.quiz_game = true
 	else:

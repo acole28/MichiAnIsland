@@ -11,6 +11,7 @@ var total_time : int = 0
 
 
 func _ready():
+	hide_place_names()
 	if Global.quiz_game == false:
 		reset()
 	else:
@@ -30,14 +31,14 @@ func make_goal():
 	
 		
 func clear_goal():
-	var i = 0
+	#var i = 0
 	#var places = %Map.get_child(3).get_child(0).get_children()
 	for place in places:
-		place.disabled = true
-		i += 1
+		place.set_deferred("disabled", true)
+		#i += 1
 
 
-func _on_places_body_entered(body: Node2D) -> void:
+func _on_places_body_entered(_body: Node2D) -> void:
 	var location 
 	if Global.quiz_game == false:
 		goal.set_deferred("disabled", true)
@@ -64,7 +65,7 @@ func reset():
 		make_goal()
 		
 func hide_place_names():
-	var places = $MapHolder/Map/Buildings/Places.get_children()
+	#var places = $MapHolder/Map/Buildings/Places.get_children()
 	for place in places:
 		place.get_child(0).visible = false
 		
@@ -76,9 +77,6 @@ func quiz_mode():
 func _on_timer_timeout() -> void:
 	total_time += 1
 	
-
-
-
 
 
 func _on_player_area_area_entered(area: Area2D) -> void:
