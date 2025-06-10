@@ -137,6 +137,16 @@ theme_override_styles/normal = ExtResource("6_nlkkf")
 text = "Touch Controls"
 alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.983442, 0.992854, 0.786378, 1)
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayGame" to="." method="_on_play_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="toggled" from="QuizMode" to="." method="_on_check_box_toggled"]
