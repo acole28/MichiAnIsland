@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bywl2u2jhqpj0"]
+[gd_scene load_steps=9 format=3 uid="uid://bywl2u2jhqpj0"]
 
 [ext_resource type="Texture2D" uid="uid://bko6wfkqqfxib" path="res://assets/UI Pack/PNG/Blue/Double/button_rectangle_depth_flat.png" id="1_fu7sn"]
 [ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="1_glbon"]
 [ext_resource type="Script" uid="uid://demnrhfunmwcl" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="Texture2D" uid="uid://d17x5ryobf24t" path="res://assets/UI Pack/PNG/Blue/Double/button_rectangle_depth_gloss.png" id="2_jix8l"]
 [ext_resource type="Texture2D" uid="uid://34ukd0a0chae" path="res://assets/Town_Cityscape.svg" id="3_glbon"]
+[ext_resource type="StyleBox" uid="uid://jfrlruu36dd5" path="res://textbackground.tres" id="6_nlkkf"]
 
 [sub_resource type="SystemFont" id="SystemFont_glbon"]
 font_names = PackedStringArray("Chalkboard SE")
@@ -110,7 +111,12 @@ offset_right = 402.0
 offset_bottom = 567.0
 size_flags_horizontal = 0
 theme = ExtResource("1_glbon")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed = ExtResource("6_nlkkf")
+theme_override_styles/hover = ExtResource("6_nlkkf")
+theme_override_styles/pressed = ExtResource("6_nlkkf")
+theme_override_styles/normal = ExtResource("6_nlkkf")
 text = "Quiz Mode"
 alignment = 1
 
