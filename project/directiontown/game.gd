@@ -54,8 +54,8 @@ func _on_places_body_entered(_body: Node2D) -> void:
 func reset():
 	goal = null
 	#Check if there are objects in Goals array. If there are no items, print a message
-	if found_places.size() == 2:
-		print("you did it!")
+	if found_places.size() == 4:
+		#print("you did it!") #Just some nice words of affirmation
 		Global.final_time = str(total_time)
 		get_tree().change_scene_to_file("res://game_over.tscn")
 		$".".queue_free()

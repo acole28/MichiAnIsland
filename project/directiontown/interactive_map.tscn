@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://w2ps71th4apk"]
+[gd_scene load_steps=18 format=3 uid="uid://w2ps71th4apk"]
 
 [ext_resource type="PackedScene" uid="uid://bw8xmktsj350i" path="res://map.tscn" id="1_1xlkj"]
 [ext_resource type="Script" uid="uid://l8c8w5reb34w" path="res://interactive_map.gd" id="1_gguev"]
@@ -7,8 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://kw3q62brbxdv" path="res://assets/UI Pack/PNG/Blue/Double/arrow_basic_n_small.png" id="5_qu25q"]
 [ext_resource type="Texture2D" uid="uid://jfon1n1jdtwx" path="res://assets/UI Pack/PNG/Blue/Double/arrow_basic_s.png" id="6_kndq7"]
 [ext_resource type="Texture2D" uid="uid://b8bpa87rbo42b" path="res://assets/UI Pack/PNG/Blue/Double/arrow_basic_s_small.png" id="7_cl17q"]
+[ext_resource type="Texture2D" uid="uid://jf24v88lm6sf" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_n.png" id="8_ixpi5"]
 [ext_resource type="Texture2D" uid="uid://ce3umnltse1bp" path="res://assets/UI Pack/PNG/Yellow/Double/star.png" id="8_kndq7"]
 [ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="9_cl17q"]
+[ext_resource type="Texture2D" uid="uid://dp3j7vgiixem6" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_n.png" id="9_g8670"]
+[ext_resource type="Texture2D" uid="uid://cd8vaol7ab6rj" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_s.png" id="10_1rlkj"]
+[ext_resource type="Texture2D" uid="uid://rd6vd17b37h7" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_s.png" id="11_snp2j"]
+[ext_resource type="Texture2D" uid="uid://j8wrbj67syun" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_w.png" id="12_dsej7"]
+[ext_resource type="Texture2D" uid="uid://s7b7inlb8isv" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_w.png" id="13_j2whu"]
+[ext_resource type="Texture2D" uid="uid://gyr7pqvfko1i" path="res://assets/UI Pack/PNG/Grey/Double/arrow_basic_e.png" id="14_3k34i"]
+[ext_resource type="Texture2D" uid="uid://wxdwm1443hye" path="res://assets/UI Pack/PNG/Grey/Double/arrow_decorative_e.png" id="15_xhds7"]
 
 [node name="InteractiveMap" type="Node2D"]
 script = ExtResource("1_gguev")
@@ -78,6 +86,44 @@ size_flags_vertical = 6
 texture_normal = ExtResource("6_kndq7")
 texture_pressed = ExtResource("7_cl17q")
 stretch_mode = 0
+
+[node name="Control" type="Control" parent="Player/CameraUI"]
+layout_mode = 3
+anchor_top = 0.665
+anchor_bottom = 0.665
+offset_left = -4.0
+offset_top = 46.08
+offset_right = -4.0
+offset_bottom = 66.08
+scale = Vector2(0.800004, 0.720002)
+
+[node name="Up" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+position = Vector2(102, 17)
+texture_normal = ExtResource("8_ixpi5")
+texture_pressed = ExtResource("9_g8670")
+action = "move_up"
+visibility_mode = 1
+
+[node name="Down" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+position = Vector2(102, 109)
+texture_normal = ExtResource("10_1rlkj")
+texture_pressed = ExtResource("11_snp2j")
+action = "move_down"
+visibility_mode = 1
+
+[node name="Left" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+position = Vector2(28, 61)
+texture_normal = ExtResource("12_dsej7")
+texture_pressed = ExtResource("13_j2whu")
+action = "move_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="Player/CameraUI/Control"]
+position = Vector2(176, 61)
+texture_normal = ExtResource("14_3k34i")
+texture_pressed = ExtResource("15_xhds7")
+action = "move_right"
+visibility_mode = 1
 
 [node name="Star" type="Sprite2D" parent="."]
 position = Vector2(9, 2)
