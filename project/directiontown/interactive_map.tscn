@@ -61,7 +61,6 @@ frame = 0
 [node name="CameraUI" type="CanvasLayer" parent="Player"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CameraUI"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.676215
 anchor_top = 0.429012
