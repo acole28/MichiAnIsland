@@ -61,6 +61,7 @@ frame = 0
 [node name="CameraUI" type="CanvasLayer" parent="Player"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CameraUI"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.676215
 anchor_top = 0.429012
@@ -90,6 +91,7 @@ texture_pressed = ExtResource("7_cl17q")
 stretch_mode = 0
 
 [node name="TouchControls" type="Control" parent="Player/CameraUI"]
+visible = false
 layout_mode = 3
 anchor_top = 0.665
 anchor_bottom = 0.665
