@@ -13,6 +13,10 @@ func _ready():
 		$TouchControls.button_pressed = true
 	elif Global.touch == false:
 		$TouchControls.button_pressed = false
+	Global.final_time = ""
+	Global.timeup = false
+
+	
 
 func _on_play_game_pressed() -> void:
 	queue_free()

@@ -82,3 +82,9 @@ func _on_timer_timeout() -> void:
 func _on_player_area_area_entered(area: Area2D) -> void:
 	if Global.quiz_game == true:
 		$Player/UserInterface.update_destination(area.get_parent().locationName)
+
+
+func _on_gameover_timeout() -> void:
+	Global.timeup = true
+	get_tree().change_scene_to_file("res://game_over.tscn")
+	$".".queue_free()
