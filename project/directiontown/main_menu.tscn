@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.983442, 0.992854, 0.786378, 1)
+color = Color(0.981857, 0.99229, 0.6977, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
