@@ -183,15 +183,18 @@ script = ExtResource("2_wijl4")
 locationName = "Department Store"
 
 [node name="Label" type="Label" parent="Buildings/Places/DepartmentStore"]
+visible = false
 z_index = 1
+custom_minimum_size = Vector2(175, 0)
 offset_left = -180.0
 offset_top = -110.0
-offset_right = -93.0
-offset_bottom = -68.0
+offset_right = -61.0
+offset_bottom = -49.0
 theme = ExtResource("3_p5pve")
 theme_override_styles/normal = SubResource("StyleBoxFlat_urblq")
+horizontal_alignment = 1
+autowrap_mode = 2
 script = ExtResource("3_e0an3")
-metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="Buildings/Places/DepartmentStore"]
 
@@ -257,7 +260,7 @@ position = Vector2(-47, -306)
 shape = SubResource("RectangleShape2D_xvvie")
 debug_color = Color(0.670588, 0, 0.317647, 1)
 script = ExtResource("2_wijl4")
-locationName = "Seta Kogyo HS"
+locationName = "Michi High School"
 
 [node name="Label" type="Label" parent="Buildings/Places/School"]
 visible = false

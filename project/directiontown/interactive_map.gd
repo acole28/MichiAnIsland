@@ -26,14 +26,14 @@ func _on_zoom_in_pressed() -> void:
 	if camera.get_zoom() < Vector2(2, 2):
 		camera.zoom += Vector2(.2, .2)
 		$Player.max_speed += 100
-		scale_place_names(Vector2(-.2, -.2))
+		scale_place_names(Vector2(-.14, -.14))
 
 #This button zooms out the camera when the UI button is pressed
 func _on_zoom_out_pressed() -> void:
 	if camera.get_zoom() > Vector2(.5, .5):
 		camera.zoom -= Vector2(.2, .2)
 		$Player.max_speed -= 100
-		scale_place_names(Vector2(.2, .2))
+		scale_place_names(Vector2(.14, .14))
 		print(camera.get_zoom())
 		
 #This function scales place names/panels with the camera zoom
