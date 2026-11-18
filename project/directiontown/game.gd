@@ -15,7 +15,7 @@ func _ready():
 	if Global.quiz_game == false:
 		reset()
 	else:
-		pass
+		quiz_mode()
 	
 	
 func make_goal():

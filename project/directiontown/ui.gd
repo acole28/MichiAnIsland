@@ -6,6 +6,7 @@ extends CanvasLayer
 #I want this physics process to update the countdown timer each second with the time left.
 func _process(delta: float) -> void:
 	update_timer(delta)
+	
 
 
 func update_timer(delta):
@@ -14,9 +15,11 @@ func update_timer(delta):
 		countdown = var_to_str(int($Timer.time_left - delta))
 	else:
 		$Countdown.visible = false
+		$Timer.stop()
 
 func update_destination(location):
 	if Global.quiz_game == false:
 		$Destination/DestinationText.text = location
 	else:
 		$Destination/DestinationText.text = location
+		
