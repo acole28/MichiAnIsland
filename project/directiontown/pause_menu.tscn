@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bro6bs33gh4db"]
+[gd_scene load_steps=7 format=3 uid="uid://bro6bs33gh4db"]
 
 [ext_resource type="Theme" uid="uid://cusk66dj8nm1" path="res://basetheme.tres" id="1_05uyy"]
 [ext_resource type="Script" uid="uid://dtqw4y128mmoe" path="res://pause_menu.gd" id="1_p81d2"]
 [ext_resource type="Texture2D" uid="uid://b1h6jl7eho6s4" path="res://assets/UI Pack/PNG/Blue/Default/button_rectangle_depth_flat.png" id="2_p81d2"]
 [ext_resource type="Texture2D" uid="uid://ck76kg0w12jq2" path="res://assets/UI Pack/PNG/Blue/Default/button_rectangle_depth_gloss.png" id="3_2nc7s"]
+[ext_resource type="StyleBox" uid="uid://jfrlruu36dd5" path="res://textbackground.tres" id="5_2nc7s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3xb4"]
 bg_color = Color(0.425571, 0.425571, 0.425571, 0.262745)
@@ -83,5 +84,23 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TouchControls" type="CheckBox" parent="Panel"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 465.0
+offset_right = 698.0
+offset_bottom = 515.0
+size_flags_horizontal = 0
+theme = ExtResource("1_05uyy")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed = ExtResource("5_2nc7s")
+theme_override_styles/hover = ExtResource("5_2nc7s")
+theme_override_styles/pressed = ExtResource("5_2nc7s")
+theme_override_styles/normal = ExtResource("5_2nc7s")
+text = "Touch Controls"
+alignment = 1
+
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Unpause" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="toggled" from="Panel/TouchControls" to="." method="_on_touch_controls_toggled"]
